@@ -1,4 +1,4 @@
-package hadoop.hadoop;
+package hadoop.DeseaseDescription;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class SortMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
+public class DeseaseDescriptionSortMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
 
 	public void map(LongWritable ikey, Text ivalue, Context context) throws IOException, InterruptedException {
 		String[] results = ivalue.toString().split("\t");
