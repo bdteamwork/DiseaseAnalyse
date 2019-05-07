@@ -19,27 +19,27 @@ import jeasy.analysis.MMAnalyzer;
  *
  */
 public class AdviseMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
-//	//停用词目录
-//	static String stopwordspath = "/Users/wby/Downloads/stopwords.txt";
-//	static Set<String> stopwordsList ;
+	//停用词目录
+	static String stopwordspath = "/Users/wby/Downloads/stopwords.txt";
+	static Set<String> stopwordsList ;
 	
 	//分词
 	MMAnalyzer mm = new MMAnalyzer();
 	
-//	protected void setup(Context context) throws IOException,InterruptedException {
-//		stopwordsList=new TreeSet<String>();
-//
-//        try{
-//    		FileReader reader = new FileReader(stopwordspath);
-//    		BufferedReader br = new BufferedReader(reader);
-//    		String line;
-//    		while((line = br.readLine())!=null ){
-//    			stopwordsList.add(line);
-//    		}
-//    	}catch(IOException e){
-//    		e.printStackTrace();
-//    	}
-//    } 
+	protected void setup(Context context) throws IOException,InterruptedException {
+		stopwordsList=new TreeSet<String>();
+
+        try{
+    		FileReader reader = new FileReader(stopwordspath);
+    		BufferedReader br = new BufferedReader(reader);
+    		String line;
+    		while((line = br.readLine())!=null ){
+    			stopwordsList.add(line);
+    		}
+    	}catch(IOException e){
+    		e.printStackTrace();
+    	}
+    } 
 	
 	public void map(LongWritable ikey, Text ivalue, Context context) throws IOException, InterruptedException {
 		String[] str = ivalue.toString().split("\\|");
@@ -55,10 +55,10 @@ public class AdviseMapper extends Mapper<LongWritable, Text, Text, IntWritable> 
 	        	//有数字或者字母排除
 	            return ;
 	        }else{
-	        	//对比停用词，如果存在，则不保存
-//	        	if(!stopwordsList.contains(result)){
+//	        	对比停用词，如果存在，则不保存
+	        	if(!stopwordsList.contains(result)){
 	    			context.write(new Text(result), new IntWritable(1));
-//	        	}
+	        	}
 	        	
 	        }
 			
