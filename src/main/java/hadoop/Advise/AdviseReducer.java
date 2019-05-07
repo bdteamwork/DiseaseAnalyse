@@ -1,4 +1,4 @@
-package hadoop.DeseaseDescription;
+package hadoop.Advise;
 
 import java.io.IOException;
 
@@ -6,11 +6,11 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 /**
- * 患者病情自述reducer
+ * 医生对病情指导建议分词reducer
  * @author wby
  *
  */
-public class DeseaseDescriptionReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+public class AdviseReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 
 	public void reduce(Text _key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
 		// process values

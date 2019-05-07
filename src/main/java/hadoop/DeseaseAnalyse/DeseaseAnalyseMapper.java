@@ -1,4 +1,4 @@
-package hadoop.DeseaseDescription;
+package hadoop.DeseaseAnalyse;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,11 +14,11 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import jeasy.analysis.MMAnalyzer;
 /**
- * 患者病情自述分词mapper
+ * 医生对病情分析分词mapper
  * @author wby
  *
  */
-public class DeseaseDescriptionMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class DeseaseAnalyseMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 	//停用词目录
 	static String stopwordspath = "/Users/wby/Downloads/stopwords.txt";
 	static Set<String> stopwordsList ;
@@ -47,8 +47,8 @@ public class DeseaseDescriptionMapper extends Mapper<LongWritable, Text, Text, I
 		if(str.length!=9){
 			return ;
 		}
-		//患者病情自述
-		String deseaseDescription = str[5].toString();
+		//医生对病情分析
+		String deseaseDescription = str[7].toString();
 		String [] results = mm.segment(deseaseDescription, " ").split(" ");
 		for(String result: results){
 	        if (Pattern.compile(".*\\d+.*").matcher(result).matches() || Pattern.compile(".*[a-zA-z].*").matcher(result).matches()) {

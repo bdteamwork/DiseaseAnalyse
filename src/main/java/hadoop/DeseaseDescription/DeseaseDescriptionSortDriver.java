@@ -9,7 +9,11 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-
+/**
+ * 患者病情自述分词排序driver
+ * @author wby
+ *
+ */
 public class DeseaseDescriptionSortDriver {
 
 	public static void main(String[] args) throws Exception {
