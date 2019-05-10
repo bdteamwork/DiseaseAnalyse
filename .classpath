@@ -18,5 +18,8 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/je-analysis-1.5.3.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-core-2.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.11.3-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.11.3-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.11.3.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
