@@ -1,0 +1,18 @@
+select 
+HOUR(d_time) as 看病时间 ,count(d_name) as 相同时间看病人数量 
+from d_statistics where d_name !=''
+group by 看病时间
+#用HOUR()函数将取时间的小时，按小时分组判断出不同时间段看病的人员
+
+
+
+select  d_age as 年龄,count(d_age) as 数量
+from d_statistics_copy where 
+d_name !='' and LENGTH(d_age) <10 and LENGTH(d_age)>1 and d_age!=' 0个月'
+GROUP BY d_age
+#用LENGTH()筛选出，正确的年龄看病记录，分组查看不同病情，不同性别的人员
+
+
+select  d_six as 性别,count(d_six) as 数量
+from d_statistics_copy 
+GROUP BY d_six
